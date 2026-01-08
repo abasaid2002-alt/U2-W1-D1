@@ -1,21 +1,22 @@
-html {
-  font-size: 62.5%;
-}
+/* IMPOSTAZIONI GENERALI */
+
 body {
   font-family: Poppins, "Helvetica Neue", sans-serif;
-  font-size: 1.4rem;
-  line-height: 1.5;
+  line-height: 1.6;
   padding: 15px;
   background-image: url("../img/sfondo.png");
   background-position: center center;
 }
+
 * {
   box-sizing: border-box;
 }
+
 hr {
   display: none;
-} 
+} /* rimuove l'elemento */
 
+/* HEADER */
 header {
   background: rgb(0, 160, 198);
   background: linear-gradient(180deg, rgba(0, 160, 198, 1) 0%, rgba(3, 109, 134, 1) 68%);
@@ -27,21 +28,51 @@ header {
   margin-bottom: 1.5em;
   padding: 2em 1.5em;
 }
-header div img {
-  margin-bottom: 20px;
+
+@media screen and (min-width: 800px) {
+  header {
+    padding: 1em;
+  }
 }
+
+@media screen and (max-width: 1199px) {
+  header .brand img {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  header {
+    text-align: left;
+  }
+  header .brand,
+  header nav,
+  header .brand p {
+    display: inline-block;
+  }
+
+  header .brand {
+    width: 75%;
+  }
+  header .brand img {
+    vertical-align: middle;
+  }
+  header .brand p {
+    margin-bottom: 0;
+  }
+}
+
 header nav ul {
   margin: 0;
-  padding: 0;
-  list-style: none;
-  text-align: center;
 }
-
 header nav li {
+  list-style: none;
   display: inline-block;
-  margin: 0 10px;
+  margin-right: 10px;
 }
-
+header nav li:last-child {
+  margin-right: 0;
+}
 header nav li a {
   color: white;
   text-decoration: none;
@@ -53,50 +84,44 @@ header nav li a::before {
   content: "\22c6\0020";
 }
 
+/* MAIN */
 main {
   background-color: #fff;
   box-shadow: 0 3px 3px #444;
   padding: 2em 1em;
   margin-bottom: 1.5em;
 }
+@media screen and (min-width: 700px) {
+  main {
+    padding: 2em;
+  }
+}
 
 section {
   background-color: #e3e3e3;
-  padding: 1em;
+  padding: 1.5em 1em;
   margin-bottom: 2em;
-  border: 1px solid #c3c3c3;
+  position: relative;
 }
 
 section h2 {
   text-align: center;
   color: #333;
-  font-size: 2rem;
+  font-size: 1.4rem;
+  margin-bottom: 1.7rem;
   font-weight: bold;
-  text-transform: uppercase;
-  background: #bfbfbf;
-  margin-bottom: 1.5rem;
+  background-color: #a3a3a3;
+  padding: 0px 1em;
 }
+
+/* ELEMENTI NEL MAIN - ARTICLE */
 
 h1 {
   font-size: 2.6rem;
+  line-height: 1.2;
   font-weight: bold;
   letter-spacing: -0.03em;
   margin-bottom: 0.7em;
-}
-
-.badge {
-  width: 80px;
-  height: auto;
-  background: #fff;
-  padding: 6px;
-  box-shadow: 0 0 0 5px #089fc4, 0 0 0 9px #9f2270;
-  margin: 0 12px 10px 0;
-}
-
-article::after {
-  content: "";
-  display: block;
-  clear: both;
 }
 
 p,
@@ -107,8 +132,61 @@ dl,
 blockquote {
   margin-bottom: 1.2em;
 }
+
 h1 + p {
   color: #a0a0a0;
+}
+
+@media screen and (max-width: 499px) {
+  p,
+  ul,
+  ol {
+    font-size: 1.4rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  p,
+  ul,
+  ol {
+    font-size: 1.2rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  h1 {
+    font-size: 3.6rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  body {
+    line-height: 2;
+  }
+  section {
+    border-radius: 20px;
+  }
+}
+
+.imgLeft {
+  margin-right: 20px;
+  border: 4px solid #00a0c6;
+  outline: 4px solid #a02571;
+  padding: 3px;
 }
 ul,
 ol {
@@ -134,9 +212,37 @@ iframe {
   border-radius: 20px;
 }
 
+@media screen and (min-width: 1200px) {
+  iframe,
+  section {
+    display: inline-block;
+    width: 50%;
+    margin-inline: -2px;
+    vertical-align: middle;
+  }
+
+  iframe {
+    height: 267px;
+  }
+}
+
+/* TABELLE */
 table {
   margin-bottom: 2em;
 }
+@media screen and (min-width: 500px) {
+  table {
+    margin: 0 auto 2em;
+  }
+}
+@media screen and (min-width: 700px) {
+  table {
+    width: 70%;
+    margin-block-start: 5rem;
+    margin-block-end: 6rem;
+  }
+}
+
 caption {
   font-weight: bold;
   font-style: italic;
@@ -163,6 +269,7 @@ tbody tr:last-of-type {
   border-bottom: 2px solid #3f6bca;
 }
 
+/* FORM */
 input {
   padding: 5px;
   border: 0;
@@ -175,7 +282,22 @@ button {
   color: white;
   font-weight: bold;
 }
+@media screen and (min-width: 500px) {
+  input {
+    display: inline-block;
+    width: 70%;
+  }
+}
+@media screen and (min-width: 700px) {
+  input {
+    padding: 15px;
+  }
+  button {
+    padding: 15px 30px;
+  }
+}
 
+/* ELEMENTI NELL' ASIDE */
 aside h2 {
   text-align: center;
   color: #333;
@@ -190,12 +312,21 @@ aside div {
   margin-bottom: 1em;
   padding: 1em;
 }
+
+@media screen and (min-width: 1200px) {
+  aside div {
+    display: inline-block;
+    width: 33.333%;
+    margin-inline: -2px;
+  }
+}
 aside div p:last-child {
   margin-bottom: 0;
   font-size: 0.8em;
   text-align: right;
 }
 
+/* FOOTER */
 footer {
   background: rgb(53, 53, 53);
   background: linear-gradient(0deg, rgba(53, 53, 53, 1) 0%, rgba(5, 85, 103, 1) 68%);
@@ -205,219 +336,53 @@ footer {
   text-align: center;
   font-size: 1.2rem;
 }
+
+@media screen and (min-width: 800px) {
+  footer {
+    padding: 1em 12em;
+  }
+}
+
 footer a {
   color: fuchsia;
 }
 
-@media screen and (min-width: 768px) {
-  body {
-    padding: 30px;
-  }
-
+@media screen and (min-width: 1200px) {
   header,
   main,
   footer {
-    max-width: 760px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  header {
-    padding: 3em 2em;
-  }
-
-  main {
-    padding: 3em 3em;
-  }
-
-  article,
-  aside {
-    display: block;
-    width: 100%;
-  }
-
-  h1 {
-    font-size: 4rem;
-    line-height: 1.1;
-  }
-
-  .badge {
-    width: 90px;
-    display: block;
-    margin: 0 0 14px 0;
-  }
-
-  table {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  section fieldset {
-    border: 0;
-    padding: 0;
-    text-align: center;
-  }
-
-  section input {
-    width: 70%;
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  section button {
-    width: 25%;
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  aside h2 {
-    font-size: 2.4rem;
-    margin-top: 1.5em;
   }
 }
 
-@media screen and (min-width: 992px) {
+@media print {
   body {
-    padding: 40px;
+    font-size: 24px;
+    padding: 0;
+    background-image: none;
+  }
+  main {
+    box-shadow: none;
+    margin: 0;
+  }
+  thead tr {
+    background-color: #d3d3d3;
+    color: black;
+  }
+  thead tr,
+  tbody tr {
+    border-bottom: 1px solid #666;
   }
 
   header,
-  main,
-  footer {
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  main {
-    padding: 3.5em 4em;
-  }
-
-  h1 {
-    font-size: 4.6rem;
-    line-height: 1.1;
-  }
-
-  header {
-    display: table;
-    width: 100%;
-    padding: 2.2em 2.5em;
-    text-align: center;
-  }
-
-  header > div {
-    display: contents;
-  }
-
-  header > div img,
-  header > div p,
-  header > nav {
-    display: table-cell;
-    vertical-align: middle;
-  }
-
-  header > div img {
-    width: 190px;
-    height: auto;
-    margin: 0;
-  }
-
-  header > div p {
-    margin: 0;
-    text-align: center;
-    white-space: nowrap;
-    padding: 0 40px;
-  }
-
-  header > nav {
-    width: 1%;
-    white-space: nowrap;
-    text-align: right;
-  }
-
-  header nav ul {
-    margin: 0;
-    padding: 0;
-    text-align: right;
-  }
-
-  header nav li {
-    margin: 0 0 0 14px;
-  }
-
-  .badge {
-    width: 90px;
-    display: block;
-    margin: 0 0 14px 0;
-  }
-
-  article iframe,
-  article iframe + section {
-    display: inline-block;
-    vertical-align: top;
-    width: 48%; 
-    height: 200px; 
-  }
-
-  article iframe {
-    margin: 0 3% 2em 0; 
-  }
-
-  article iframe + section {
-    margin: 0 0 2em 0;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-
-  article iframe + section h2 {
-    margin: 0 0 1em 0;
-    padding: 0.6em 0;
-  }
-
-  article iframe + section fieldset {
-    border: 0;
-    padding: 0;
-    margin: 0;
-    font-size: 0;
-    background: #dcdcdc;
-    border: 1px solid #bdbdbd;
-  }
-
-  article iframe + section input {
-    display: inline-block;
-    width: 70%;
-    font-size: 1.4rem;
-    padding: 10px;
-    background: #fff;
-    border: 0;
-    border-right: 1px solid #bdbdbd;
-    vertical-align: middle;
-  }
-
-  article iframe + section button {
-    display: inline-block;
-    width: 30%;
-    font-size: 1.4rem;
-    padding: 10px 0;
-    vertical-align: middle;
-  }
-
-  aside {
-    text-align: center;
-  }
-
-  aside div {
-    display: inline-block;
-    width: 31%;
-    margin: 0 1% 1em;
-    vertical-align: top;
-    text-align: left;
-  }
-
-  table {
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
+  article section,
+  iframe,
+  aside,
+  footer,
+  .social,
+  .toTop {
+    display: none;
   }
 }
